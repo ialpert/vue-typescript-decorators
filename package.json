@@ -1,0 +1,36 @@
+{
+  "name": "vue-typescript-decorators",
+  "version": "0.1.0",
+  "description": "Typescript decorators for Vue2.0 originally forked off of av-ts",
+  "main": "./dist/index.js",
+  "scripts": {
+    "compile": "tsc",
+    "test": "mocha dist/test/*.js",
+    "prepublish": "tsc && npm test"
+  },
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist/index.js",
+    "dist/index.d.ts",
+    "dist/src"
+  ],
+  "keywords": [
+    "Vue"
+  ],
+  "author": "Evert van Brussel",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/chai": "^3.4.32",
+    "@types/mocha": "^2.2.31",
+    "chai": "^3.5.0",
+    "mocha": "^3.0.2",
+    "reflect-metadata": "^0.1.9",
+    "typescript": "rc",
+    "vue": "^2.1.0",
+    "vuex": "^2.1.2"
+  },
+  "peerDependencies": {
+    "vue": "^2.1.0",
+    "vuex": "^2.1.2"
+  }
+}
