@@ -24,10 +24,12 @@
     "@types/mocha": "^2.2.31",
     "chai": "^3.5.0",
     "mocha": "^3.0.2",
-    "reflect-metadata": "^0.1.9",
     "typescript": "rc",
     "vue": "^2.1.0",
     "vuex": "^2.1.2"
+  },
+  "dependencies": {
+    "reflect-metadata": "^0.1.9"
   },
   "peerDependencies": {
     "vue": "^2.1.0",
