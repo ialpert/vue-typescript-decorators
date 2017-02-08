@@ -9,7 +9,7 @@ This started as a fork of the amazingly awesome library [av-ts](https://github.c
 
 ```typescript
 import { Vue, Component, prop, watch, lifecycle,
-  state, mutation, getter, action } from 'av-ts'
+  state, mutation, getter, action } from 'vue-typescript-decorators'
 import { OtherComponent } from './components/OtherComponent.vue'
 
 @Component
