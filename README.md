@@ -34,7 +34,6 @@ export class MyComponent extends Vue {
   // The given default value will be the prop's default.
   @prop defaultInfersNotRequired = 'Hello World!'
   @prop nullableSoNotRequired: boolean | null = null
-  @prop countIncrementedByFunctionDefaultProp = 0
 
   // This prop will be of type function
   // and the given function will be its default value.
@@ -52,6 +51,7 @@ export class MyComponent extends Vue {
       return this.countIncrementedByFunctionDefaultProp++
     }
   )
+  @prop countIncrementedByFunctionDefaultProp = 0
 
   /**
    * This object will be placed in a function
