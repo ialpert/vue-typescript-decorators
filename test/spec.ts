@@ -18,7 +18,7 @@ declare module 'vue/types/options' {
 
 @Component({
   directives: {},
-  components: {abc: {}},
+  // components: { MyMixin },
   vuex: {},
   filters: {},
   name: 'my-component',
@@ -26,7 +26,7 @@ declare module 'vue/types/options' {
   delimiters: ['{{', '}}'],
 })
 export class MyComponent extends Vue {
-  static components = {def: 'hello'}
+  static components = { MyMixin }
   
   static method() {
     console.log('do something...')

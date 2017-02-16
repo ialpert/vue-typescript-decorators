@@ -74,6 +74,14 @@ describe('various decorators', () => {
     expect(opt.render).to.be.a('function')
   })
 
+  it('should handle static properties', () => {
+    let options = MyComponent['options']
+    expect(options).to.have.ownProperty('components')
+    expect(options.components).to.have.property('MyMixin')
+    expect(options.components).to.have.property('my-component')
+    expect(new options.components['MyMixin']()).to.be.instanceof(Vue)
+  })
+
   it('should handle filter', () => {
     let options = MyComponent['options']
     expect(options).to.have.ownProperty('filters')

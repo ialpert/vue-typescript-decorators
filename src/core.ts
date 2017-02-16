@@ -140,7 +140,10 @@ function findSuper(proto: Object): VClass<Vue> {
 }
 
 function collectOptions(cls: VClass<Vue>, keys: string[], optionsToWrite: ComponentOptions<Vue>) {
-  optionsToWrite = objAssign({}, keys.mapToObject(makeObject(cls)), optionsToWrite)
+  let newOptions = keys.mapToObject(makeObject(cls));
+  for(let key of keys) {
+    optionsToWrite[key] = objAssign({}, newOptions[key], optionsToWrite[key])
+  }
 }
 
 function Component_(meta: ComponentOptions<Vue> = {}): ClassDecorator {
