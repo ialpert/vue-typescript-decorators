@@ -8,7 +8,7 @@ This started as a fork of the amazingly awesome library [av-ts](https://github.c
 ## Example of most of the features:
 
 ```typescript
-import { Vue, Component, prop, watch, lifecycle,
+import { Vue, Component, prop, watch, lifecycle, filter
   state, mutation, getter, action } from 'vue-typescript-decorators'
 import { OtherComponent } from './components/OtherComponent.vue'
 
@@ -114,6 +114,13 @@ export class MyComponent extends Vue {
   }
 
   lifecycleHooksCalled = 0
+
+  // This method will not be added to the
+  // methods option. It will only be
+  // added to the filters option.
+  @filter toUpper(input: string): string {
+    return input.toUpperCase()
+  }
 
   // maps store.state.counter
   @state counter: number

@@ -1,6 +1,6 @@
 import {
   Component, Prop, Watch,
-  Lifecycle, Render, Vue, resultOf
+  Lifecycle, Render, Filter, Vue, resultOf
 } from '../index'
 
 
@@ -89,6 +89,10 @@ export class MyComponent extends Vue {
   @Watch('myWatchee')
   logWatch(str: string) {
     console.log(this.myData)
+  }
+
+  @Filter toUpper(input: string): string {
+    return input.toUpperCase()
   }
 
   // instance property reification

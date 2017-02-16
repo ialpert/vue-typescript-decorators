@@ -74,6 +74,13 @@ describe('various decorators', () => {
     expect(opt.render).to.be.a('function')
   })
 
+  it('should handle filter', () => {
+    let options = MyComponent['options']
+    expect(options).to.have.ownProperty('filters')
+    expect(options.filters).have.key('toUpper')
+    expect(options.filters['toUpper']).to.be.a('function')
+  })
+
   it('should handle watch', () => {
      let opt = MyComponent['options']
      expect(opt.watch).to.have.ownProperty('myWatchee')
