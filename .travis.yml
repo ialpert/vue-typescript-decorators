@@ -2,4 +2,4 @@ language: node_js
 node_js:
   - "6"
 before_script:
-  yarn compile
+  npm run compile
