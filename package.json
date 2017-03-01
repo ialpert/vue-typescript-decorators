@@ -4,6 +4,7 @@
   "description": "Typescript decorators for Vue2.0 originally forked off of av-ts",
   "main": "./dist/index.js",
   "scripts": {
+    "compile": "webpack",
     "test": "webpack && mocha dist/test/*.js",
     "prepublish": "npm test"
   },
