@@ -1,4 +1,4 @@
-import Vue = require('vue')
+import Vue from 'vue'
 
 export {Component} from './src/core'
 export {Lifecycle} from './src/lifecycle'
@@ -8,7 +8,7 @@ export {Transition} from './src/transition'
 export {Filter} from './src/filter'
 export {Watch} from './src/watch'
 export {Data} from './src/data'
-export {State, Getter, Action, Mutation} from './src/vuex'
+export {State, Getter, Action, Mutation, namespace} from './src/vuex'
 export * from './src/functions'
 export * from './src/aliases'
 export * from './src/context'

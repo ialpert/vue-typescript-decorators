@@ -4,9 +4,9 @@
   "description": "Typescript decorators for Vue2.0 originally forked off of av-ts",
   "main": "./dist/index.js",
   "scripts": {
-    "compile": "tsc",
-    "test": "mocha dist/test/*.js",
-    "prepublish": "tsc && npm test"
+    "compile": "ts-babel",
+    "test": "ts-babel && mocha dist/test/*.js",
+    "prepublish": "npm test"
   },
   "typings": "dist/index.d.ts",
   "files": [
@@ -20,19 +20,21 @@
   "author": "Evert van Brussel",
   "license": "ISC",
   "devDependencies": {
-    "@types/chai": "^3.4.32",
-    "@types/mocha": "^2.2.31",
-    "chai": "^3.5.0",
-    "mocha": "^3.0.2",
+    "@types/chai": "^3.4",
+    "@types/mocha": "^2.2",
+    "babel-preset-es2015": "^6.22.0",
+    "chai": "^3.5",
+    "mocha": "^3.0",
+    "ts-babel": "^1.4.4",
     "typescript": "^2.2",
-    "vue": "^2.1.0",
-    "vuex": "^2.1.2"
+    "vue": "^2.2",
+    "vuex": "^2.2"
   },
   "dependencies": {
-    "reflect-metadata": "^0.1.9"
+    "reflect-metadata": "^0.1"
   },
   "peerDependencies": {
-    "vue": "^2.1.0",
-    "vuex": "^2.1.2"
+    "vue": "^2.2",
+    "vuex": "^2.2"
   }
 }

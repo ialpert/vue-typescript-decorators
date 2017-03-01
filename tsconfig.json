@@ -1,20 +1,22 @@
 {
     "compilerOptions": {
-        "module": "commonjs",
-        "target": "es5",
-        "noImplicitAny": true,
-        "noImplicitThis": true,
-        "noImplicitReturns": true,
-        "noUnusedLocals": true,
-        "strictNullChecks": true,
-        "sourceMap": false,
-        "experimentalDecorators": true,
-        "emitDecoratorMetadata": true,
-        "suppressImplicitAnyIndexErrors": true,
+        "target": "es2015",
+        "outDir": "./dist",
+        "module": "es2015",
+        "sourceMap": true,
         "declaration": true,
         "stripInternal": true,
-        "outDir": "./dist",
-        "lib": ["es5", "es2015.promise", "dom"]
+        "noImplicitAny": true,
+        "noImplicitThis": true,
+        "noUnusedLocals": true,
+        "strictNullChecks": true,
+        "noImplicitReturns": true,
+        "moduleResolution": "node",
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "allowSyntheticDefaultImports": true,
+        "suppressImplicitAnyIndexErrors": true,
+        "lib": ["es5", "es2015", "dom"]
     },
     "exclude": [
         "node_modules", "dist"

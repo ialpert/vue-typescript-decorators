@@ -1,4 +1,4 @@
-import {Vue} from 'vue/types/vue'
+import Vue from 'vue'
 import {VNode, VNodeData} from 'vue/types/vnode'
 export {VNode} from 'vue/types/vnode'
 
