@@ -151,4 +151,21 @@ describe('various decorators', () => {
     })
   })
 
+  it('should watch nested optional prop', done => {
+    type Type = {
+      prop?: number;
+    }
+
+    class Comp extends Vue {
+      public member: Type;
+
+      @Watch(['member', 'prop'])
+      handler(newValue: number) {
+
+      }
+    }
+    Comp
+    done()
+  })
+
 })
