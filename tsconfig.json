@@ -1,7 +1,7 @@
 {
     "compilerOptions": {
         "target": "es5",
-        "outDir": "./dist",
+        "outDir": "./",
         "module": "es2015",
         "sourceMap": true,
         "declaration": true,
