@@ -11,7 +11,8 @@ export type Lifecycles =
   'beforeDestroy' | 'destroyed' |
   'beforeMount' | 'mounted' |
   'beforeUpdate' | 'updated' |
-  'activated' | 'deactivated'
+  'activated' | 'deactivated' |
+  'beforeRouteEnter' | 'beforeRouteLeave' | 'beforeRouteUpdate'
 
 export type LifecycleDecorator = (target: Vue, method: string) => void
 export function Lifecycle(life: Lifecycles): LifecycleDecorator
