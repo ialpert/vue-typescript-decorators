@@ -33,6 +33,8 @@ export interface StateBindingHelper extends BindingHelper {
   (type: StateTransformer, options?: BindingOptions): VuexDecorator
 }
 
+export type BindingSpecs = { key: string, map: any, namespace: string | undefined }
+
 export const State = createBindingHelper(STATE_KEY, 'computed', mapState) as StateBindingHelper
 
 export const Getter = createBindingHelper(GETTER_KEY, 'computed', mapGetters)
@@ -68,25 +70,30 @@ function createBindingHelper (
   bindTo: 'computed' | 'methods',
   mapFn: MapHelper
 ): BindingHelper {
-  function makeDecorator (map: any, namespace: string | undefined) {
-    Component.register(propKey, (proto, instance, options) => {
-      let keys: string[] = proto[propKey]
+  Component.register(propKey, (proto, instance, options) => {
+    let bindings: BindingSpecs[] = proto[propKey]
 
-      if (!options[bindTo]) {
-        options[bindTo] = {}
+    if (!options[bindTo]) {
+      options[bindTo] = {}
+    }
+
+    for (let binding of bindings) {
+      let key = binding.key
+      let map = binding.map
+      let namespace = binding.namespace
+      const mapObject = { [key]: map }
+
+      options[bindTo]![key] = namespace !== undefined
+        ? mapFn(namespace, mapObject)[key]
+        : mapFn(mapObject)[key]
       }
+  })
 
-      for (let key of keys) {
-        const mapObject = { [key]: map }
-
-        options[bindTo]![key] = namespace !== undefined
-          ? mapFn(namespace, mapObject)[key]
-          : mapFn(mapObject)[key]
-        }
-    })
-
+  function makeDecorator (map: any, namespace: string | undefined) {
     return (target: Vue, key: string) => {
-      (target[propKey] = target[propKey] || []).push(key)
+      (target[propKey] = target[propKey] || []).push({
+        key, map, namespace
+      })
     }
   }
 
