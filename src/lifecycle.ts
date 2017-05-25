@@ -40,14 +40,17 @@ Component.register(LIFECYCLE_KEY, function(proto, instance, options) {
     let methods: string[] = lifecycles[lifecycle]
     // delete proto[lifecycle]
     options[lifecycle] = function(this: Vue) {
+      let _this = this
+      let args = arguments
       // console.log(this)
-      methods.forEach( method => {
+      methods.forEach(function(method: string) {
+        let _v = _this || instance || proto
         // this[method] does not exist on beforeCreate
-        if (this[method]) {
-          this[method]()
-        } else if (this['$options']) {
+        if (_v[method]) {
+          _v[method].apply(_v, args)
+        } else if (_v['$options']) {
           // but maybe we could just always do this one?
-          this['$options'].methods![method].bind(this)()
+          _v['$options'].methods![method].apply(_v, args)()
         }
       })
     }
