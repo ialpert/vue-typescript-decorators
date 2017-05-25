@@ -1,6 +1,6 @@
 {
   "name": "vue-typescript-decorators",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "Typescript decorators for Vue2.0 originally forked off of av-ts",
   "main": "./dist/index.js",
   "scripts": {
