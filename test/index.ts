@@ -37,7 +37,7 @@ describe('vue component', () => {
     expect(options).to.haveOwnProperty('methods')
     expect(options.methods).to.have.ownProperty('myMethod')
     expect(options.methods!['myMethod']).to.be.a('function')
-    expect(Object.keys(options.methods)).to.be.eql(['myMethod', 'created', 'initializeSomeStuff'])
+    expect(Object.keys(options.methods)).to.be.eql(['myMethod', 'logWatch', 'created', 'initializeSomeStuff'])
   })
 
   it('should not have function data in methods', () => {

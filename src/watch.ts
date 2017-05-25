@@ -27,8 +27,7 @@ export function Watch(keyOrPath: string | string[], opt: WatchOptions = {}): Wat
   let key = Array.isArray(keyOrPath) ? keyOrPath.join('.') : keyOrPath
   return function(target: any, method: string) {
     let watchedProps = target[WATCH_PROP] = target[WATCH_PROP] || createMap()
-    opt['handler'] = target[method]
-    opt['originalMethod'] = method
+    opt['handler'] = method
     watchedProps[key] = opt as any
   }
 }
@@ -38,6 +37,5 @@ Component.register(WATCH_PROP, function(target, instance, optionsToWrite) {
   const watch = optionsToWrite.watch
   for (let key in watchedProps) {
     watch![key] = watchedProps[key]
-    delete target[watchedProps[key]['originalMethod']]
   }
 })
